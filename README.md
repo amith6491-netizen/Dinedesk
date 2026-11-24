@@ -1,6 +1,6 @@
 # 🍽️ DineDesk — Modern Full-Stack Restaurant & Dining Platform
+Live Demo :https://dinedesk-ten.vercel.app/
 
-[![CodSoft Task](https://img.shields.io/badge/CodSoft-Task%2002-blue?style=for-the-badge&logo=codeforces)](https://github.com/amith6491-netizen/CODSOFT_TASK_02)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
