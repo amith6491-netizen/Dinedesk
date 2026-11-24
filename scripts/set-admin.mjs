@@ -1,23 +1,40 @@
 import mongoose from 'mongoose';
+import dns from 'node:dns';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 
+// DNS SRV fix for Windows / ISP DNS issues
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4']);
+} catch {
+  // Ignore
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/dinedesk';
+let mongoUri = process.env.MONGODB_URI;
 
 try {
-  const envPath = path.join(__dirname, '..', '.env.local');
-  if (fs.existsSync(envPath)) {
-    const envFile = fs.readFileSync(envPath, 'utf8');
-    const match = envFile.match(/MONGODB_URI=["']?([^"'\r\n]+)["']?/);
-    if (match) mongoUri = match[1];
+  for (const envFileName of ['.env', '.env.local']) {
+    const envPath = path.join(__dirname, '..', envFileName);
+    if (fs.existsSync(envPath)) {
+      const envFile = fs.readFileSync(envPath, 'utf8');
+      const match = envFile.match(/MONGODB_URI=["']?([^"'\r\n]+)["']?/);
+      if (match && match[1] && !match[1].includes('127.0.0.1')) {
+        mongoUri = match[1];
+        break;
+      }
+    }
   }
 } catch {
   // Use default
+}
+
+if (!mongoUri) {
+  mongoUri = 'mongodb://127.0.0.1:27017/dinedesk';
 }
 
 const email = process.argv[2];
