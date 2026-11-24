@@ -10,15 +10,18 @@ export async function registerAction(formData: FormData) {
   try {
     await connectDB();
 
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
+    const name = (formData.get('name') as string)?.trim();
+    const rawEmail = (formData.get('email') as string)?.trim();
+    const email = rawEmail?.toLowerCase();
     const password = formData.get('password') as string;
 
     if (!email || !password || !name) {
       return { error: 'All fields are required.' };
     }
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ 
+      email: { $regex: new RegExp(`^${email}$`, 'i') } 
+    });
     if (existingUser) {
       return { error: 'User already exists.' };
     }
@@ -60,14 +63,16 @@ export async function loginAction(formData: FormData) {
   try {
     await connectDB();
 
-    const email = formData.get('email') as string;
+    const rawEmail = (formData.get('email') as string)?.trim();
     const password = formData.get('password') as string;
 
-    if (!email || !password) {
+    if (!rawEmail || !password) {
       return { error: 'Email and password are required.' };
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ 
+      email: { $regex: new RegExp(`^${rawEmail}$`, 'i') } 
+    });
     if (!user || !user.password) {
       return { error: 'Invalid email or password.' };
     }

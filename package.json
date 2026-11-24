@@ -9,7 +9,10 @@
     "lint": "eslint",
     "set-admin": "node scripts/set-admin.mjs",
     "clean-users": "node scripts/clean-users.mjs",
-    "migrate-to-atlas": "node scripts/migrate-to-atlas.mjs"
+    "migrate-to-atlas": "node scripts/migrate-to-atlas.mjs",
+    "check-users": "node scripts/check-users.mjs",
+    "inspect-atlas": "node scripts/inspect-atlas.mjs",
+    "reset-password": "node scripts/reset-password.mjs"
   },
   "dependencies": {
     "@cashfreepayments/cashfree-js": "^1.0.7",
