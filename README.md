@@ -1,6 +1,6 @@
 # 🍽️ DineDesk — Modern Full-Stack Restaurant & Dining Platform
-Live Demo :https://dinedesk-ten.vercel.app/
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-dinedesk--ten.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://dinedesk-ten.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -9,7 +9,8 @@ Live Demo :https://dinedesk-ten.vercel.app/
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg?style=for-the-badge)](./LICENSE)
 
-> Developed as part of the **CodSoft Web Development Internship (Task 02)**.
+> 🚀 **Live Demo:** [https://dinedesk-ten.vercel.app/](https://dinedesk-ten.vercel.app/)  
+> Developed as part of the **CodSoft Web Development Internship (Task 02)**.  
 > **DineDesk** is an end-to-end dining and food ordering platform featuring multi-restaurant browsing, table reservations, live menu search, shopping cart management, Cashfree Sandbox payment processing, an active Kitchen Display System (KDS), and role-based access control.
 
 ---
